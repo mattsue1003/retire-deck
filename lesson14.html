@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第14堂｜台灣歷史的見證者</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body data-brand="台灣歷史的見證者" data-sub="// 第14堂 · 2026-12-01" data-tint="#d3c2ff" data-fx="stars" data-sky="26,26,44|92,94,126|58,58,84">
+<div id="stage">
+
+  <!-- 封面 -->
+  <section class="slide hero" data-ch data-label="第14堂 · 記憶" data-o="14:1240,410,125">
+    <div class="label r" style="--i:0">// 第14堂 · 2026-12-01</div>
+    <h1 class="r" style="--i:1;font-size:104px">台灣歷史的見證者</h1>
+    <p class="sub r" style="--i:2">從時光機看見我們的生命韌性</p>
+    <p class="quote r" style="--i:3">您的一生，<br>就是最精彩的教科書。</p>
+    <div class="big r" style="--i:4" aria-hidden="true">14</div>
+  </section>
+
+  <!-- 流程 -->
+  <section class="slide" data-label="今天的流程" data-o="">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 今天的流程</div>
+      <h2 class="r" style="--i:1">兩個小時，我們這樣走</h2>
+    </div>
+    <div class="flow">
+      <div class="panel r" style="--i:2"><span class="num">上半場 · 我們的年代</span><h3>一起回去看</h3><ul><li>打開記憶的三把鑰匙</li><li>時光機：選一個年代</li><li>猜一猜：電視、棒球、布袋戲</li><li>那些年，我們一起歡呼</li></ul></div>
+      <div class="rest r" style="--i:3">中場休息</div>
+      <div class="panel r" style="--i:4"><span class="num">下半場 · 我的故事</span><h3>說給彼此聽</h3><ul><li>一首歌，回到那一年</li><li>921：我們怎麼走過來</li><li>畫一條自己的生命線</li><li>留一句話給下一代</li></ul></div>
+    </div>
+  </section>
+
+  <!-- 三把鑰匙 -->
+  <section class="slide" data-label="文化記憶的典藏" data-o="14:1440,215,48,.6">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 文化記憶的典藏與分享</div>
+      <h2 class="r" style="--i:1">打開記憶的三把鑰匙</h2>
+    </div>
+    <div class="three">
+      <div class="panel r" style="--i:2"><span class="num">01 · 圖像</span><h3>一張老照片</h3><p>喚回一段時光、<br>一張熟悉的臉</p></div>
+      <div class="panel r" style="--i:3"><span class="num">02 · 音樂</span><h3>一段旋律</h3><p>前奏一下，<br>就回到那一年</p></div>
+      <div class="panel r" style="--i:4"><span class="num">03 · 故事</span><h3>一段自己的話</h3><p>說出來，<br>轉折就成了力量</p></div>
+    </div>
+    <p class="foot r" style="--i:5">由職能治療師引導，有系統地梳理生命中的重要轉折</p>
+  </section>
+
+  <!-- 暖身：老照片 -->
+  <section class="slide" data-label="暖身 · 老照片" data-o="14:1330,470,80,.85">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 暖身 · 鑰匙一：圖像</div>
+      <h2 class="r" style="--i:1">請拿出帶來的那張老照片</h2>
+    </div>
+    <div class="rows">
+      <div class="panel r" style="--i:2"><span class="num">01</span><p>那一年，我幾歲？在哪裡？</p></div>
+      <div class="panel r" style="--i:3"><span class="num">02</span><p>照片裡，還有誰？</p></div>
+      <div class="panel r" style="--i:4"><span class="num">03</span><p>按下快門前，發生了什麼事？</p></div>
+    </div>
+    <p class="foot r" style="--i:5">沒帶照片的同學，請形容一張「心裡的照片」</p>
+  </section>
+
+  <!-- 互動：時光機 -->
+  <section class="slide" data-label="互動 · 時光機" data-o="14:1420,600,60,.9">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 互動 · 時光機</div>
+      <h2 class="r" style="--i:1">選一個年代，我們回去看看</h2>
+    </div>
+    <div class="decades r" style="--i:2" id="decades"></div>
+    <div class="panel ask r" style="--i:3">
+      <span class="num" id="askNum">////// 請選擇年代</span>
+      <div class="ev" id="askEv">點選上方的年代，看看那時候台灣發生了什麼事。</div>
+      <p id="askQ">那一年，您幾歲？<br>人在哪裡？</p>
+    </div>
+  </section>
+
+  <!-- 猜一猜：台視 -->
+  <section class="slide" data-label="猜一猜 · 電視來了" data-o="14:1440,215,48,.6">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 猜一猜 · 經典事件 01</div>
+      <h2 class="r" style="--i:1">台灣第一家無線商業電視台「台視」</h2>
+    </div>
+    <div class="quiz">
+      <p class="q r" style="--i:2">是在哪一年的雙十節開播的？</p>
+      <div class="opts r" style="--i:3">
+        <button class="opt">1952 年</button>
+        <button class="opt" data-ok>1962 年</button>
+        <button class="opt">1972 年</button>
+        <button class="opt">1982 年</button>
+      </div>
+      <div class="ans panel"><b>1962 年 10 月 10 日。</b>那時候電視是稀奇的東西。請問大家：家裡的第一台電視是什麼時候買的？是不是左鄰右舍都擠過來看？</div>
+    </div>
+  </section>
+
+  <!-- 猜一猜：紅葉少棒 -->
+  <section class="slide" data-label="猜一猜 · 紅葉少棒" data-o="14:1440,215,48,.6">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 猜一猜 · 經典事件 02</div>
+      <h2 class="r" style="--i:1">1968 年，台東紅葉少棒對上日本隊</h2>
+    </div>
+    <div class="quiz">
+      <p class="q r" style="--i:2">這場轟動全台的比賽，比數是多少？</p>
+      <div class="opts r" style="--i:3">
+        <button class="opt">1 比 0</button>
+        <button class="opt">3 比 2</button>
+        <button class="opt">5 比 4</button>
+        <button class="opt" data-ok>7 比 0</button>
+      </div>
+      <div class="ans panel"><b>7 比 0，完封。</b>1968 年 8 月 25 日在台北市立棒球場，山上來的孩子打贏來訪的日本關西少棒明星隊，掀起全台的棒球熱。</div>
+    </div>
+    <p class="src">對手為日本關西地方選拔的少棒明星隊，並非當年的世界冠軍隊。</p>
+  </section>
+
+  <!-- 那些年我們一起歡呼 -->
+  <section class="slide" data-label="人物 · 體壇英雄" data-o="">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 經典人物 03 · 那些年，我們一起歡呼</div>
+      <h2 class="r" style="--i:1">您還記得，當時在哪裡聽到消息嗎？</h2>
+    </div>
+    <div class="three">
+      <div class="panel r" style="--i:2"><span class="num">1960 · 羅馬奧運</span><h3>楊傳廣<br>「亞洲鐵人」</h3><p>十項全能銀牌，<br>台灣第一面奧運獎牌。</p></div>
+      <div class="panel r" style="--i:3"><span class="num">1968 · 墨西哥奧運</span><h3>紀政<br>「飛躍的羚羊」</h3><p>女子 80 公尺跨欄銅牌。</p></div>
+      <div class="panel r" style="--i:4"><span class="num">1969 · 美國威廉波特</span><h3>金龍少棒</h3><p>拿下台灣第一座<br>世界少棒冠軍。</p></div>
+    </div>
+    <p class="foot r" style="--i:5">半夜爬起來聽轉播、放鞭炮的，請舉手</p>
+  </section>
+
+  <!-- 史艷文 -->
+  <section class="slide" data-label="經典 · 雲州大儒俠" data-o="14:1440,215,48,.6">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 經典節目 04 · 請舉手</div>
+      <h2 class="r" style="--i:1">1970 年，中午的電視機前擠滿了人</h2>
+    </div>
+    <p class="lead r" style="--i:2">黃俊雄布袋戲《雲州大儒俠》在台視首播。相傳播出時，街上都沒什麼人。<br>您最記得哪一個角色？</p>
+    <div class="quiz poll">
+      <div class="opts sm r" style="--i:3">
+        <button class="opt">史艷文</button>
+        <button class="opt">藏鏡人</button>
+        <button class="opt">苦海女神龍</button>
+        <button class="opt">怪老子</button>
+      </div>
+      <div class="ans panel">請一位同學學一句口白，或是唱一小段主題曲。當年是跟誰一起看的？</div>
+    </div>
+    <p class="src">1970 年 3 月 2 日首播，1974 年停播。「收視率九成多」為流傳說法，沒有原始調查可查證。</p>
+  </section>
+
+  <!-- 中場休息 -->
+  <section class="slide center" data-ch data-label="中場休息" data-o="14:800,290,75,.9">
+    <div class="label r" style="--i:0;margin-top:330px">////// 中場休息</div>
+    <h2 class="r" style="--i:1">喝口水，動一動</h2>
+    <p class="sub r" style="--i:2">等一下回來，換大家說自己的故事</p>
+  </section>
+
+  <!-- 猜一猜：帽子歌后 -->
+  <section class="slide" data-label="猜一猜 · 鑰匙二：音樂" data-o="14:1440,215,48,.6">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 猜一猜 · 藝人 05 · 鑰匙二：音樂</div>
+      <h2 class="r" style="--i:1">每次上台，一定戴著帽子</h2>
+    </div>
+    <div class="quiz">
+      <p class="q r" style="--i:2">人稱「帽子歌后」的是哪一位？</p>
+      <div class="opts r" style="--i:3">
+        <button class="opt">鄧麗君</button>
+        <button class="opt" data-ok>鳳飛飛</button>
+        <button class="opt">江蕙</button>
+        <button class="opt">蔡琴</button>
+      </div>
+      <div class="ans panel"><b>鳳飛飛。</b>1986 年的〈掌聲響起〉，很多人到現在都還會唱。同一個年代，還有鄧麗君 1977 年唱紅的〈月亮代表我的心〉。</div>
+    </div>
+  </section>
+
+  <!-- 音樂分享 -->
+  <section class="slide" data-label="音樂分享" data-o="14:1330,470,80,.85">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 小組分享 · 我的那一首歌</div>
+      <h2 class="r" style="--i:1">哪首歌一響，您就回到那一年？</h2>
+    </div>
+    <div class="split">
+      <div class="rows" style="margin-top:0">
+        <div class="panel r" style="--i:2"><span class="num">01</span><p style="font-size:34px">歌名是什麼？誰唱的？</p></div>
+        <div class="panel r" style="--i:3"><span class="num">02</span><p style="font-size:34px">那時候我在做什麼？</p></div>
+        <div class="panel r" style="--i:4"><span class="num">03</span><p style="font-size:34px">想到誰？</p></div>
+      </div>
+      <div class="panel list r" style="--i:5">
+        <span class="num">////// 全班的歌單</span>
+        <form><input placeholder="輸入歌名，按 Enter" maxlength="24" autocomplete="off"><button aria-label="加入">＋</button></form>
+        <ol><li class="empty">記下來，下課前挑一首大家一起唱。</li></ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 921 -->
+  <section class="slide" data-label="事件 · 921" data-o="14:1470,200,40,.45">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 經典事件 06 · 生命韌性</div>
+      <h2 class="r" style="--i:1">那一晚，全台灣都醒著</h2>
+    </div>
+    <div class="person">
+      <div class="panel who r" style="--i:2"><span class="num">1999 年 9 月 21 日</span><h3 style="font-size:64px;letter-spacing:.04em">921 大地震</h3><span class="yr">凌晨 1 點 47 分 · 規模 7.3</span><p>震央在南投集集。</p></div>
+      <div class="r" style="--i:3">
+        <dl class="facts">
+          <div><dt>// 那一晚</dt><dd>您人在哪裡？第一個想到的是誰？</dd></div>
+          <div><dt>// 那幾天</dt><dd>誰幫了您？您又幫了誰？</dd></div>
+          <div><dt>// 後來</dt><dd>是什麼，讓我們<b>一起撐過來</b>？</dd></div>
+        </dl>
+        <p class="say" style="font-size:36px">走過來的人，<br>本身就是韌性的證明。</p>
+      </div>
+    </div>
+    <p class="src">這一頁可能勾起難過的回憶。學員可以選擇只聽不說；有人情緒起伏時，先停下來陪他。</p>
+  </section>
+
+  <!-- 生命線工作坊 -->
+  <section class="slide" data-label="工作坊 · 生命線" data-o="14:1400,215,48,.6">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 工作坊 · 鑰匙三：故事</div>
+      <h2 class="r" style="--i:1">畫一條自己的生命線</h2>
+    </div>
+    <div class="steps">
+      <div class="step r" style="--i:2"><div class="dot">01</div><h3>畫一條線</h3><p>左邊是出生，<br>右邊是今天</p></div>
+      <div class="step r" style="--i:3"><div class="dot">02</div><h3>標出高峰</h3><p>三個最開心、<br>最得意的時刻</p></div>
+      <div class="step r" style="--i:4"><div class="dot">03</div><h3>標出低谷</h3><p>三個最辛苦、<br>卻走過來的時刻</p></div>
+      <div class="step r" style="--i:5"><div class="dot">04</div><h3>選一個說</h3><p>挑一個轉折，<br>說給同伴聽</p></div>
+    </div>
+    <p class="foot r" style="--i:6">低谷旁邊請寫一句：那時候，是什麼幫我撐過去？</p>
+  </section>
+
+  <!-- 跨世代交流 -->
+  <section class="slide" data-label="跨世代交流" data-o="14:1330,470,80,.85">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 跨世代的心靈交流</div>
+      <h2 class="r" style="--i:1">聽故事的人，請這樣聽</h2>
+    </div>
+    <div class="rows">
+      <div class="panel r" style="--i:2"><span class="num">01</span><p>不打斷，讓對方把話說完</p></div>
+      <div class="panel r" style="--i:3"><span class="num">02</span><p>多問一句：「後來呢？」</p></div>
+      <div class="panel r" style="--i:4"><span class="num">03</span><p>聽完說：「謝謝您告訴我。」</p></div>
+    </div>
+    <p class="foot r" style="--i:5">在歡笑與淚水中，為彼此的生命故事喝采</p>
+  </section>
+
+  <!-- 研究怎麼說 -->
+  <section class="slide" data-label="研究怎麼說" data-o="">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 研究怎麼說</div>
+      <h2 class="r" style="--i:1">回憶和說故事，對我們有幫助嗎？</h2>
+    </div>
+    <div class="evi">
+      <div class="panel r" style="--i:2"><span class="num">做法 · 懷舊與生命回顧</span><h3>有引導地回想、<br>整理、說出人生故事</h3><p>就是我們今天做的事：用照片、音樂和故事，把一路走來的經過串起來。</p></div>
+      <div class="panel r" style="--i:3"><span class="num">結果 · 128 篇研究的彙整</span><h3>憂鬱情緒減輕，<br>更能肯定自己的一生</h3><p>整體來看是中等程度的幫助；每個人的感受不一樣，舒服最重要。</p><p class="cite">Pinquart &amp; Forstmeier (2012). Aging &amp; Mental Health, 16(5), 541–558.</p></div>
+    </div>
+  </section>
+
+  <!-- 問卷：AD-8 -->
+  <section class="slide" data-label="實證問卷 · AD-8" data-o="14:1440,215,48,.6">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 實證問卷 · AD-8 極早期失智症篩檢量表</div>
+      <h2 class="r" style="--i:1">記性的事，也可以早一點留意</h2>
+    </div>
+    <div class="three">
+      <div class="panel r" style="--i:2"><span class="num">是什麼</span><h3>8 個問題，<br>跟以前的自己比</h3><p>看記性、判斷、興趣<br>有沒有明顯改變。</p></div>
+      <div class="panel r" style="--i:3"><span class="num">怎麼看</span><h3>2 題以上有改變，<br>建議找醫師談談</h3><p>它是提醒，不是診斷；<br>自己填容易偏高。</p></div>
+      <div class="panel r" style="--i:4"><span class="num">哪裡做</span><h3>衛生所、<br>神經內科</h3><p>或打失智症關懷專線，<br>問附近的共照中心。</p></div>
+    </div>
+    <p class="src">Galvin et al. (2005). Neurology, 65, 559–564；台灣版 Yang et al. (2011)。量表題目需授權使用，本簡報不轉載題目內容。</p>
+  </section>
+
+  <!-- 資源 -->
+  <section class="slide" data-label="可以活用的資源" data-o="">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 可以活用的資源</div>
+      <h2 class="r" style="--i:1">想找老照片、老歌、老電影，去哪裡？</h2>
+    </div>
+    <div class="res">
+      <div class="panel r" style="--i:2"><div class="tel s">國家文化<br>記憶庫</div><p>老照片、老地圖、地方故事，上網就能查。<br>tcmb.culture.tw</p></div>
+      <div class="panel r" style="--i:3"><div class="tel s">臺灣記憶</div><p>國家圖書館。老明信片、舊報紙、家族文獻。<br>tm.ncl.edu.tw</p></div>
+      <div class="panel r" style="--i:4"><div class="tel s">國家電影及<br>視聽文化中心</div><p>老電影、新聞片的保存與放映。<br>tfai.org.tw</p></div>
+      <div class="panel r" style="--i:5"><div class="tel" style="font-size:40px;margin-top:14px">0800-474-580</div><h3>失智症關懷專線</h3><p>台灣失智症協會。免付費，週一至五 9:00–21:00。</p></div>
+      <div class="panel r" style="--i:6"><div class="tel s">失智共同<br>照護中心</div><p>各縣市都有，提供評估、諮詢和社區據點的課程。</p></div>
+      <div class="panel r" style="--i:7"><div class="tel s">社區照顧<br>關懷據點</div><p>很多據點有懷舊、說故事的活動，可以繼續參加。</p></div>
+    </div>
+    <p class="src">資訊查核於 2026 年 11 月。國家文化記憶庫現由國立臺灣歷史博物館營運。請換上本地據點的名稱與電話。</p>
+  </section>
+
+  <!-- 互動：傳承牆 -->
+  <section class="slide" data-label="互動 · 傳承牆" data-o="">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 互動 · 傳承牆</div>
+      <h2 class="r" style="--i:1">留一句話，給下一代</h2>
+    </div>
+    <div class="split">
+      <div class="rows" style="margin-top:0">
+        <div class="panel r" style="--i:2"><span class="num">01</span><p style="font-size:34px">我這輩子學到最重要的一件事</p></div>
+        <div class="panel r" style="--i:3"><span class="num">02</span><p style="font-size:34px">我最想讓孫子知道的一件事</p></div>
+        <div class="panel r" style="--i:4"><span class="num">03</span><p style="font-size:34px">我想對年輕時的自己說</p></div>
+      </div>
+      <div class="panel list r" style="--i:5">
+        <span class="num">////// 我們留下的話</span>
+        <form><input placeholder="輸入一句話，按 Enter" maxlength="24" autocomplete="off"><button aria-label="加入">＋</button></form>
+        <ol><li class="empty">三題選一題說，講師記下來。</li></ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 回家任務 -->
+  <section class="slide" data-label="回家任務" data-o="14:1330,470,80,.85">
+    <div class="head">
+      <div class="label r" style="--i:0">////// 回家任務</div>
+      <h2 class="r" style="--i:1">把今天的故事，帶回家</h2>
+    </div>
+    <div class="rows">
+      <div class="panel r" style="--i:2"><span class="num">01</span><p>把生命線拿給一位家人看</p></div>
+      <div class="panel r" style="--i:3"><span class="num">02</span><p>在老照片背面寫下時間和人名</p></div>
+      <div class="panel r" style="--i:4"><span class="num">03</span><p>請晚輩幫忙，錄下一段您說的故事</p></div>
+    </div>
+    <p class="foot r" style="--i:5">讓珍貴的台灣記憶，永續傳承</p>
+  </section>
+
+  <!-- 結語 -->
+  <section class="slide end" data-ch data-label="結語" data-o="14:1260,430,110">
+    <div class="label r" style="--i:0">////// 帶回家的三句話</div>
+    <h2 class="r" style="--i:1">我們，就是活的歷史</h2>
+    <div class="recap">
+      <div class="r" style="--i:2"><span>01</span>照片、歌、故事，都是鑰匙</div>
+      <div class="r" style="--i:3"><span>02</span>走過低谷，就是韌性</div>
+      <div class="r" style="--i:4"><span>03</span>說出來，記憶才傳得下去</div>
+    </div>
+  </section>
+
+</div>
+<script>
+window.DECADES = [
+  ['1950','物資不多、大家互相幫忙的年代。','那個年代，家裡的餐桌上<br>最常出現什麼？'],
+  ['1960','<b>1960</b> 楊傳廣拿下奧運銀牌、大同電鍋開始生產 · <b>1962</b> 台視開播 · <b>1968</b> 紅葉少棒 7 比 0','家裡的第一台電視或電鍋，<br>是什麼時候買的？'],
+  ['1970','<b>1970</b> 布袋戲《雲州大儒俠》首播 · <b>1978</b> 中山高速公路全線通車','第一次上高速公路，<br>是要去哪裡？'],
+  ['1980','<b>1986</b> 鳳飛飛唱紅〈掌聲響起〉','那時候，您最常哼的<br>一首歌是什麼？'],
+  ['1990','<b>1996</b> 台北捷運木柵線通車 · <b>1999</b> 921 大地震','那幾年，家裡發生過<br>哪一件難忘的事？'],
+  ['2000','<b>2007</b> 高鐵通車（板橋到左營）· <b>2009</b> 高雄世界運動會','第一次搭高鐵，<br>是跟誰一起、要去哪裡？'],
+  ['2010','<b>2017</b> 台北世界大學運動會','有哪一個轉折，<br>讓您變得更堅強？'],
+  ['2020','這幾年，我們又一起走過了不少事。','現在的您，最想對<br>年輕時的自己說什麼？'],
+];
+</script>
+<script src="deck.js"></script>
+</body>
+</html>
