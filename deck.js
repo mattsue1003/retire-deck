@@ -18,7 +18,7 @@ document.body.insertAdjacentHTML('afterbegin', '<canvas id="scene" aria-hidden="
 stage.insertAdjacentHTML('afterbegin', `
   <div class="hud tl"><a class="brand" href="${B.home || 'index.html'}">${B.brand || '退休新旅程'}</a><div>${B.sub || ''}</div></div>
   <div class="hud tr"><b>//////</b> <span id="hudLabel"></span></div>
-  <div class="hud bl">← → 換頁　·　F 全螢幕</div>
+  <div class="hud bl"><a class="navbtn home" id="home" href="${B.home || 'index.html'}" aria-label="回首頁">⌂ 首頁</a><span>← → 換頁 · F 全螢幕</span></div>
   <div id="ticks"></div>
   <div class="hud br">
     <button class="navbtn" id="prev" aria-label="上一頁">←</button>
@@ -86,6 +86,7 @@ addEventListener('keydown', e => {
   } else if (['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); go(cur-1); }
   else if (e.key==='Home') go(0);
   else if (e.key==='End') go(N-1);
+  else if (e.key==='h' || e.key==='H') location.href = B.home || 'index.html';
   else if (e.key==='f' || e.key==='F'){
     document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.();
   }

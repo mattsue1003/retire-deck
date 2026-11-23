@@ -299,6 +299,18 @@ img.ph{width:100%;height:190px;object-fit:cover;object-position:50% 22%;display:
 
 .phx{height:170px;margin-top:10px;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--m);font-size:72px;color:var(--tint);background:rgba(10,12,17,.4)}
 
+/* 照片完整顯示、不裁切；空出來的地方用深色底襯著 */
+img.ph{object-fit:contain;object-position:50% 50% !important;background:rgba(10,12,17,.55)}
+.who img.ph{height:236px}
+.who:has(.ph){padding-top:24px;padding-bottom:26px}
+.who:has(.ph) h3{font-size:52px;margin-top:12px}
+
+/* 回首頁按鈕 */
+.navbtn.home{width:auto;display:inline-flex;align-items:center;padding:0 20px;font-family:var(--f);font-size:24px;font-weight:700;letter-spacing:.12em;text-decoration:none;color:var(--ink)}
+.hud.bl{bottom:36px;display:flex;align-items:center;gap:18px}
+#ticks{gap:5px}
+#ticks button{width:15px}
+
 /* ---- 影片 ---- */
 .slide:has(.vid) h2{font-size:60px}
 .vrow{display:grid;grid-template-columns:800px 1fr;gap:44px;margin-top:28px;align-items:start}
