@@ -283,3 +283,36 @@ a.card:hover,button.card:hover{background:rgba(244,246,250,.14);transform:transl
 .score .n{font-size:84px}
 .score p{font-size:25px;min-height:3.2em;margin-top:12px}
 .score .warn{font-size:20px;padding-top:10px}
+
+/* ---- 照片 ---- */
+img.ph{width:100%;height:190px;object-fit:cover;object-position:50% 22%;display:block;margin-top:12px;border:1px solid var(--line);
+  filter:grayscale(.3) contrast(1.03);background:rgba(10,12,17,.4)}
+.who:has(.ph) p{display:none}
+.who:has(.ph) h3{font-size:56px;margin-top:14px}
+.who:has(.ph) .yr{margin-top:10px;font-size:23px}
+.three .panel:has(.ph){padding-top:22px}
+.three .panel img.ph{height:170px;margin-top:10px}
+.three .panel:has(.ph) h3{font-size:38px;margin-top:14px}
+.three .panel:has(.ph) p{font-size:27px;margin-top:8px}
+.ans:has(.ph){display:grid;grid-template-columns:230px 1fr;gap:26px;align-items:center}
+.ans img.ph{height:150px;margin-top:0}
+
+.phx{height:170px;margin-top:10px;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--m);font-size:72px;color:var(--tint);background:rgba(10,12,17,.4)}
+
+/* ---- 影片 ---- */
+.slide:has(.vid) h2{font-size:60px}
+.vrow{display:grid;grid-template-columns:800px 1fr;gap:44px;margin-top:28px;align-items:start}
+.vid{position:relative;width:800px;height:450px;border:1px solid var(--line);background:#0b0d12;overflow:hidden}
+.vid::before,.vid::after{content:"";position:absolute;width:16px;height:16px;border:2px solid var(--tint);pointer-events:none;z-index:2}
+.vid::before{left:-1px;top:-1px;border-right:0;border-bottom:0}
+.vid::after{right:-1px;bottom:-1px;border-left:0;border-top:0}
+.vid iframe,.vid .poster{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.vid .poster{background-size:cover;background-position:center;cursor:pointer;filter:grayscale(.25)}
+.vid .poster::after{content:"▶";position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;
+  display:grid;place-items:center;font-size:48px;padding-left:8px;background:rgba(14,17,23,.72);border:2px solid var(--tint);color:var(--tint);transition:transform .2s}
+.vid .poster:hover::after{transform:scale(1.08)}
+.vnote{display:flex;flex-direction:column;gap:14px}
+.vnote .panel{padding:18px 24px}
+.vnote .panel p{font-size:30px;font-weight:700;line-height:1.45;margin-top:4px}
+.vmeta{font-family:var(--m);font-size:19px;color:var(--dim);line-height:1.5;letter-spacing:.03em;margin-top:6px}
+.vmeta a{color:var(--tint)}

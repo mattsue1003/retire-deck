@@ -71,6 +71,7 @@ function go(i){
   scramble($('#hudLabel'), s.dataset.label || '');
   setTint(s.dataset.tint || B.tint || '#cfe0f5');
   setTargets(s.dataset.o || '');
+  $$('.vid').forEach(v => { if (!s.contains(v) && v.querySelector('iframe')) poster(v); });
   try{ history.replaceState(null,'','#'+(cur+1)); }catch(e){}
 }
 $('#prev').onclick = () => go(cur-1);
@@ -104,6 +105,24 @@ addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - tx; tx = null;
   if (Math.abs(dx) > 60) go(cur + (dx<0 ? 1 : -1));
 }, {passive:true});
+
+/* ---------- 影片：點封面才載入 YouTube；離開該頁就停止 ---------- */
+function poster(v){
+  v.innerHTML = '';
+  const b = document.createElement('button');
+  b.className = 'poster'; b.setAttribute('aria-label', '播放影片');
+  b.style.backgroundImage = `url(https://i.ytimg.com/vi/${v.dataset.yt}/hqdefault.jpg)`;
+  b.onclick = () => {
+    v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.dataset.yt}?autoplay=1&rel=0&start=${v.dataset.start||0}" title="YouTube 影片"
+      allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+  };
+  v.append(b);
+}
+$$('.vid').forEach(v => {
+  poster(v);
+  const m = v.closest('.vrow')?.querySelector('.vmeta');
+  if (m) m.insertAdjacentHTML('beforeend', ` · <a href="https://www.youtube.com/watch?v=${v.dataset.yt}&t=${v.dataset.start||0}s" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a>`);
+});
 
 /* ---------- 互動：選擇題（.quiz > .opt[data-ok]） ---------- */
 $$('.quiz').forEach(q => $$('.opt', q).forEach(o => {
