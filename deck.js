@@ -61,6 +61,7 @@ slides.forEach((s,i) => {
 });
 const pad = n => String(n).padStart(2,'0');
 function go(i){
+  if (typeof unzoom === 'function') unzoom();
   i = Math.max(0, Math.min(N-1, i));
   slides[cur].classList.remove('on');
   cur = i;
@@ -80,6 +81,7 @@ $$('[data-go]').forEach(b => b.onclick = () => go(+b.dataset.go));
 
 addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.isContentEditable) return;
+  if (zoomed){ e.preventDefault(); unzoom(); return; }     // 放大中：任何按鍵都先關閉放大
   if (['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){
     if ((e.key===' '||e.key==='Enter') && (e.target.tagName==='BUTTON' || e.target.tagName==='A')) return;
     e.preventDefault(); go(cur+1);
@@ -135,6 +137,58 @@ $$('.poll').forEach(q => $$('.opt', q).forEach(o => o.onclick = () => {
   $$('.opt', q).forEach(x => x.style.borderColor = ''); o.style.borderColor = 'var(--tint)';
   $('.ans', q)?.classList.add('show');
 }));
+
+/* ---------- 點一下放大：文字方塊、段落、項目、照片 ---------- */
+const ZSEL = '.three .panel, .four .panel, .rows .panel, .evi .panel, .res .panel, .flow .panel, .vnote .panel, .who, .facts > div, ' +
+             '.quote, .say, .ans, .lead, .foot, .step, .recap > div, .ask, .quiz .q, img.ph';
+const ZSKIP = 'button, a, input, [contenteditable], .list, .score, .scale, .poster';
+$$(ZSEL).forEach(el => { if (!el.closest(ZSKIP)) el.setAttribute('data-z', ''); });
+const zshade = document.createElement('div');
+zshade.className = 'zshade';
+zshade.innerHTML = '<span class="zhint">點一下任何地方，或按 Esc 關閉</span>';
+let zoomed = null;
+function unzoom(){
+  if (!zoomed) return;
+  if (zoomed.tagName === 'FIGURE') zoomed.remove();
+  else { zoomed.classList.remove('zoomed'); zoomed.style.transform = ''; }
+  zshade.classList.remove('show'); zoomed = null;
+}
+function zoom(el){
+  const slide = el.closest('.slide'); if (!slide) return;
+  slide.append(zshade);
+  if (el.tagName === 'IMG'){                       // 照片：另開一張大圖，附說明
+    const f = document.createElement('figure');
+    f.className = 'zfig';
+    const im = el.cloneNode(); im.className = ''; im.removeAttribute('style');
+    const cap = document.createElement('figcaption'); cap.textContent = el.alt || '';
+    f.append(im, cap); slide.append(f); zoomed = f;
+  } else {                                         // 文字：原地放大並移到畫面中央
+    const st = stage.getBoundingClientRect();
+    const box = el.getBoundingClientRect();
+    let r = box;
+    if (!el.matches('.panel, .who, .ans, .ask')){   // 沒有外框的文字：以實際文字範圍為準，才會放到正中央
+      const rg = document.createRange(); rg.selectNodeContents(el);
+      const t = rg.getBoundingClientRect();
+      if (t.width > 0 && t.height > 0) r = t;
+    }
+    const ex = (box.left-st.left)/K + box.width/K/2, ey = (box.top-st.top)/K + box.height/K/2;   // 縮放是以元素中心為基準
+    const w = r.width/K, h = r.height/K, cx = (r.left-st.left)/K + w/2, cy = (r.top-st.top)/K + h/2;
+    const s = Math.max(1.15, Math.min(1400/w, 640/h, 2.6));
+    el.classList.add('zdone', 'zoomed');
+    el.style.transform = `translate(${800-(ex+s*(cx-ex))}px,${430-(ey+s*(cy-ey))}px) scale(${s})`;
+    zoomed = el;
+  }
+  void zshade.offsetWidth;            // 先讓瀏覽器套用初始狀態，淡入動畫才會播放
+  zshade.classList.add('show');
+}
+stage.addEventListener('click', e => {
+  if (zoomed){ e.preventDefault(); e.stopPropagation(); unzoom(); return; }
+  if (e.target.closest(ZSKIP)) return;
+  const el = e.target.closest('[data-z]');
+  if (!el) return;
+  if (el.matches('.ans') && getComputedStyle(el).visibility === 'hidden') return;
+  zoom(el);
+}, true);
 
 /* 複選舉手題（.chips > .opt）：可點多個，再點一次取消 */
 $$('.chips .opt').forEach(o => o.onclick = () => o.classList.toggle('sel'));
