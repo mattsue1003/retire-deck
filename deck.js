@@ -116,15 +116,27 @@ function poster(v){
   b.className = 'poster'; b.setAttribute('aria-label', '播放影片');
   b.style.backgroundImage = `url(https://i.ytimg.com/vi/${v.dataset.yt}/hqdefault.jpg)`;
   b.onclick = () => {
-    v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.dataset.yt}?autoplay=1&rel=0&start=${v.dataset.start||0}" title="YouTube 影片"
+    v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.dataset.yt}?autoplay=1&rel=0&start=${v.dataset.start||0}${v.dataset.end?'&end='+v.dataset.end:''}" title="YouTube 影片"
       allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
   };
   v.append(b);
+  const L = +v.dataset.len;
+  if (L) { const t = document.createElement('span'); t.className = 'vlen';
+    t.textContent = (v.dataset.end ? '播放片段 ' : '片長 ') + Math.floor(L/60) + ':' + String(L%60).padStart(2,'0'); v.append(t); }
 }
 $$('.vid').forEach(v => {
   poster(v);
   const m = v.closest('.vrow')?.querySelector('.vmeta');
   if (m) m.insertAdjacentHTML('beforeend', ` · <a href="https://www.youtube.com/watch?v=${v.dataset.yt}&t=${v.dataset.start||0}s" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a>`);
+});
+
+/* ---------- 插圖背景（section[data-art]）：圖在右、往左淡出，文字照樣疊在上面 ---------- */
+$$('.slide[data-art]').forEach(s => {
+  const a = document.createElement('div');
+  a.className = 'art'; a.setAttribute('aria-hidden', 'true');
+  a.style.backgroundImage = `url(${s.dataset.art})`;
+  if (s.dataset.artO) a.style.opacity = s.dataset.artO;
+  s.prepend(a);
 });
 
 /* ---------- 互動：選擇題（.quiz > .opt[data-ok]） ---------- */

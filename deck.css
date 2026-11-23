@@ -342,3 +342,12 @@ img.ph{object-fit:contain;object-position:50% 50% !important;background:rgba(10,
 .vnote .panel p{font-size:30px;font-weight:700;line-height:1.45;margin-top:4px}
 .vmeta{font-family:var(--m);font-size:19px;color:var(--dim);line-height:1.5;letter-spacing:.03em;margin-top:6px}
 .vmeta a{color:var(--tint)}
+
+.vid .vlen{position:absolute;right:14px;bottom:12px;z-index:3;padding:6px 14px;background:rgba(8,10,14,.82);border:1px solid var(--tint);color:#fff;font-family:var(--m);font-size:22px;letter-spacing:.06em;pointer-events:none}
+
+/* 插圖背景 */
+.slide[data-art]{isolation:isolate}
+.art{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:right center;opacity:.92;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 22%,rgba(0,0,0,.55) 48%,#000 72%);mask-image:linear-gradient(90deg,transparent 22%,rgba(0,0,0,.55) 48%,#000 72%)}
+.art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,17,.55) 0,transparent 16%,transparent 80%,rgba(10,12,17,.7) 100%)}
+.slide[data-art] h1,.slide[data-art] h2,.slide[data-art] .quote,.slide[data-art] .lead,.slide[data-art] p{text-shadow:0 2px 18px rgba(8,10,14,.85)}
