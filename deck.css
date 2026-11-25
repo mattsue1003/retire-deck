@@ -313,7 +313,7 @@ img.ph{object-fit:contain;object-position:50% 50% !important;background:rgba(10,
 .zhint{position:absolute;left:0;right:0;bottom:34px;text-align:center;font-family:var(--m);font-size:22px;letter-spacing:.08em;color:var(--dim)}
 .slide.on .r.zdone,.slide.on .zdone{transition-delay:0s !important}
 .zoomed{z-index:41 !important;cursor:zoom-out !important;outline:0 !important;transition:transform .35s cubic-bezier(.2,.7,.2,1) !important;filter:none !important}
-.zoomed:not(.foot){position:relative}
+.zoomed:not(.foot):not(.src){position:relative}
 .panel.zoomed,.who.zoomed,.ans.zoomed{background:rgba(26,31,41,.98);backdrop-filter:none;-webkit-backdrop-filter:none;border-color:var(--tint)}
 .zfig{position:absolute;inset:0;z-index:41;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:70px 110px 90px;cursor:zoom-out;pointer-events:none}
 .zfig img{max-width:1300px;max-height:640px;width:auto;height:auto;border:1px solid var(--tint);background:#0b0d12}
@@ -351,3 +351,18 @@ img.ph{object-fit:contain;object-position:50% 50% !important;background:rgba(10,
   -webkit-mask-image:linear-gradient(90deg,transparent 22%,rgba(0,0,0,.55) 48%,#000 72%);mask-image:linear-gradient(90deg,transparent 22%,rgba(0,0,0,.55) 48%,#000 72%)}
 .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,17,.55) 0,transparent 16%,transparent 80%,rgba(10,12,17,.7) 100%)}
 .slide[data-art] h1,.slide[data-art] h2,.slide[data-art] .quote,.slide[data-art] .lead,.slide[data-art] p{text-shadow:0 2px 18px rgba(8,10,14,.85)}
+
+/* ---- 數字長條（研究數據一眼看懂） ---- */
+.bars{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.bars>div>span{white-space:nowrap}
+.bars>div{display:grid;grid-template-columns:var(--w,190px) 1fr 124px;align-items:center;gap:16px;font-size:26px;font-weight:700;line-height:1.3}
+.bars u{display:block;height:24px;background:rgba(244,246,250,.1);border:1px solid var(--line);text-decoration:none}
+.bars i{display:block;height:100%;width:calc(var(--v)/var(--m,100)*100%);background:var(--tint)}
+.bars b{white-space:nowrap;font-family:var(--m);font-size:28px;color:var(--tint);font-weight:500;text-align:right}
+.bars .lo i{background:var(--faint)}
+.bars .lo b{color:var(--dim)}
+/* ---- 安全提醒：比出處大、看得清楚 ---- */
+.src.care{font-family:var(--f);font-size:24px;font-weight:500;color:var(--dim);letter-spacing:.03em;right:110px;bottom:100px}
+.src.care::before{content:"! ";font-family:var(--m);color:var(--tint);font-weight:700}
+.foot:has(+ .src.care){bottom:182px}
+.zoomed.src{position:absolute}

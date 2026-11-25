@@ -152,9 +152,9 @@ $$('.poll').forEach(q => $$('.opt', q).forEach(o => o.onclick = () => {
 
 /* ---------- 點一下放大：文字方塊、段落、項目、照片 ---------- */
 const ZSEL = '.three .panel, .four .panel, .rows .panel, .evi .panel, .res .panel, .flow .panel, .vnote .panel, .who, .facts > div, ' +
-             '.quote, .say, .ans, .lead, .foot, .step, .recap > div, .ask, .quiz .q, img.ph';
+             '.quote, .say, .ans, .lead, .foot, .step, .recap > div, .ask, .quiz .q, img.ph, .src, .evi .cite';
 const ZSKIP = 'button, a, input, [contenteditable], .list, .score, .scale, .poster';
-$$(ZSEL).forEach(el => { if (!el.closest(ZSKIP)) el.setAttribute('data-z', ''); });
+$$(ZSEL).forEach(el => { if (!el.closest(ZSKIP) && !(el.matches('.cite') && el.closest('.panel')) && el.textContent.trim()) el.setAttribute('data-z', ''); });
 const zshade = document.createElement('div');
 zshade.className = 'zshade';
 zshade.innerHTML = '<span class="zhint">點一下任何地方，或按 Esc 關閉</span>';
